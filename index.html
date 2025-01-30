@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sm1</title>
     <style>
         body {
@@ -10,43 +12,63 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            padding: 1rem;
             font-family: Arial, sans-serif;
             text-align: center;
+            box-sizing: border-box;
         }
         .nav {
-            display: flex; 
-            gap: 10px; 
-            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
         .nav a {
-            text-decoration: none; 
-            color: blue; /* Link color */
-        }
-        .separator {
-            color: gray; 
-        }
-        .latex4000Webring {
-            margin-top: 20px;
-        }
-        .latex4000WebringButtons a {
-            margin: 0 10px;
             text-decoration: none;
             color: blue;
+            font-size: 1rem;
+        }
+        .separator {
+            display: none; 
+        }
+        .latex4000Webring {
+            margin-top: 2rem;
+        }
+        .latex4000WebringButtons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+        .latex4000WebringButtons a {
+            text-decoration: none;
+            color: blue;
+            font-size: 1rem;
         }
         .image-below-title {
-            margin: 10px 0; 
-            max-width: 200px; 
+            margin: 1rem 0;
+            max-width: 90%;
+            height: auto;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            .nav a, .latex4000WebringButtons a {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
-    <img class="image-below-title" src="https://mad.s-ul.eu/63pecYaC.gif" alt="lmao">   
-    <h1>sm1</h1> 
+    <img class="image-below-title" src="https://mad.s-ul.eu/63pecYaC.gif" alt="lmao">
+    <h1>sm1</h1>
     <div class="nav">
         <a href="https://soundcloud.com/itsnotsome1">soundcloud</a>
-        <span class="separator"> </span>
         <a href="https://x.com/itsnotsome1">twitter</a>
-        <span class="separator"> </span>
         <a href="https://www.last.fm/user/aelelex">last.fm</a>
     </div>
 
