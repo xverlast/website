@@ -13,6 +13,18 @@
             font-family: Arial, sans-serif;
             text-align: center;
         }
+        .nav {
+            display: flex; 
+            gap: 10px; 
+            margin-top: 20px;
+        }
+        .nav a {
+            text-decoration: none; 
+            color: blue; 
+        }
+        .separator {
+            color: gray; /
+        }
         .latex4000Webring {
             margin-top: 20px;
         }
@@ -26,25 +38,15 @@
 <body>
     <h1>sm1</h1>
     <p>welcome.</p>
-    <a href="https://soundcloud.com/itsnotsome1">soundcloud</a>
-<span class="separator">|</span>
-<a href="https://x.com/itsnotsome1">twitter</a>
-<span class="separator">|</span>
-<a href="https://www.twitch.tv/itsnotsome1">twitch</a>
+    
+    <div class="nav">
+        <a href="https://soundcloud.com/itsnotsome1">soundcloud</a>
+        <span class="separator">|</span>
+        <a href="https://x.com/itsnotsome1">twitter</a>
+        <span class="separator">|</span>
+        <a href="https://www.twitch.tv/itsnotsome1">twitch</a>
+    </div>
 
-<style>
-.nav {
-    display: flex;
-    gap: 5px; 
-  }
-  .nav a {
-    text-decoration: none;
-    color: blue;
-  }
-  .separator {
-    color: gray; 
-  }
-</style>
     <div class="latex4000Webring">
         <a href="https://nonacademic.net" title="Collective">Latex 4000</a>
         <div class="latex4000WebringButtons">
