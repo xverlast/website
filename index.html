@@ -1,17 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sm1</title>
     <style>
         :root {
-            --background-color: #ffffff;
-            --text-color: #000000;
-            --link-color: blue;
-        }
-
-        [data-theme="dark"] {
             --background-color: #121212;
             --text-color: #ffffff;
             --link-color: lightblue;
@@ -30,21 +24,8 @@
             font-family: Arial, sans-serif;
             text-align: center;
             box-sizing: border-box;
-            transition: background-color 0.3s, color 0.3s;
         }
-        .theme-toggle {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        .theme-toggle input {
-            cursor: pointer;
-        }
+
         .nav {
             display: flex;
             flex-wrap: wrap;
@@ -52,32 +33,36 @@
             gap: 1rem;
             margin-top: 1.5rem;
         }
+
         .nav a {
             text-decoration: none;
             color: var(--link-color);
             font-size: 1rem;
         }
+
         .latex4000Webring {
             margin-top: 2rem;
         }
+
         .latex4000WebringButtons {
             display: flex;
             gap: 1rem;
             justify-content: center;
             margin-top: 0.5rem;
         }
+
         .latex4000WebringButtons a {
             text-decoration: none;
             color: var(--link-color);
             font-size: 1rem;
         }
+
         .image-below-title {
             margin: 1rem 0;
-            max-width: 90%; /* Responsive width */
+            max-width: 90%;
             height: auto;
         }
 
-        /* Responsive styles */
         @media (max-width: 600px) {
             h1 {
                 font-size: 1.5rem;
@@ -89,10 +74,6 @@
     </style>
 </head>
 <body>
-    <div class="theme-toggle">
-        <label for="themeSwitch">Dark Theme</label>
-        <input type="checkbox" id="themeSwitch" />
-    </div>
     <img class="image-below-title" src="https://mad.s-ul.eu/63pecYaC.gif" alt="lmao">
     <h1>sm1</h1>
     <div class="nav">
@@ -109,31 +90,5 @@
             <a href="https://nonacademic.net/ring?action=next&amp;from=sm1" title="Next">→</a>
         </div>
     </div>
-
-    <script>
-        const themeSwitch = document.getElementById('themeSwitch');
-        const rootElement = document.documentElement;
-
-        themeSwitch.addEventListener('change', () => {
-            if (themeSwitch.checked) {
-                rootElement.setAttribute('data-theme', 'dark');
-            } else {
-                rootElement.setAttribute('data-theme', 'light');
-            }
-        });
-
-        // Save user preference to localStorage
-        themeSwitch.addEventListener('change', () => {
-            const theme = themeSwitch.checked ? 'dark' : 'light';
-            localStorage.setItem('theme', theme);
-        });
-
-        // Load user preference on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            themeSwitch.checked = savedTheme === 'dark';
-            rootElement.setAttribute('data-theme', savedTheme);
-        });
-    </script>
 </body>
 </html>
