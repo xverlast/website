@@ -57,7 +57,6 @@
       font-size: 1rem;
     }
 
-    /* Cube styles */
     .cube-container {
       width: 150px;
       height: 150px;
@@ -74,7 +73,7 @@
     }
 
     .cube div {
-      position: flex;
+      position: absolute;
       width: 150px;
       height: 150px;
       background: rgba(0, 0, 0, 0.6); 
@@ -117,6 +116,7 @@
   </style>
 </head>
 <body>
+  <div class="flex-cube-wrapper">
   <div class="cube-container">
     <div class="cube">
       <div class="front"> </div>
@@ -126,6 +126,7 @@
       <div class="top"> </div>
       <div class="bottom"> </div>
     </div>
+  </div>
   </div>
   <h1>sm1</h1>
   <div class="nav">
