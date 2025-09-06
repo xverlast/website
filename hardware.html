@@ -6,27 +6,40 @@
   <title>sm1's hardware</title>
   <style>
     :root {
-      --background-color: #121212;
       --text-color: #ffffff;
       --link-color: lightblue;
     }
 
-    body {
-      background-color: var(--background-color);
-      color: var(--text-color);
-      display: flex;
-      justify-content: center;   
-      align-items: center;       
-      height: 100vh;
-      margin: 0;
-      font-family: Arial, sans-serif;
-      box-sizing: border-box;
+	body {
+	  background: black url("https://mad.s-ul.eu/63pecYaC.gif") no-repeat center center fixed;
+	  background-size: cover;  
+	  color: var(--text-color);
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  height: 100vh;
+	  margin: 0;
+	  font-family: Arial, sans-serif;
+	  box-sizing: border-box;
+	}
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6); 
+      z-index: 0;
     }
 
     .content {
-      max-width: 600px;          
-      text-align: left;          
-      line-height: 1.4;          
+      max-width: 600px;
+      text-align: left;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1; 
     }
 
     h1, h2 {
@@ -74,7 +87,7 @@
       <li>mic — some fifine xlr mic</li>
       <li>capture card — avermedia live gamer extreme 3 gc551g2</li>
     </ul>
-	<p> last updated: sept 6 2025</p>
+
     <a href="index.html">go back home</a>
   </div>
 </body>
