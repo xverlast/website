@@ -1,149 +1,151 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sm1</title>
-  <style>
-    :root {
-      --background-color: #121212;
-      --text-color: #ffffff;
-      --link-color: lightblue;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sm1</title>
+<style>
+:root {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --link-color: lightblue;
+  --cube-size: 150px; /* default desktop size */
+}
 
-    body {
-      background-color: var(--background-color);
-      color: var(--text-color);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      padding: 1rem;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      box-sizing: border-box;
-    }
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+}
 
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
+.nav { display: flex; flex-wrap: wrap; justify-content: center; gap:1rem; margin-top:1.5rem; }
+.nav a { text-decoration:none; color: var(--link-color); font-size:1rem; }
 
-    .nav a {
-      text-decoration: none;
-      color: var(--link-color);
-      font-size: 1rem;
-    }
+.latex4000Webring { margin-top:2rem; }
+.latex4000WebringButtons { display:flex; gap:1rem; justify-content:center; margin-top:0.5rem; }
+.latex4000WebringButtons a { text-decoration:none; color: var(--link-color); font-size:1rem; }
 
-    .latex4000Webring {
-      margin-top: 2rem;
-    }
+/* Cube container */
+.cube-container {
+  width: var(--cube-size);
+  height: var(--cube-size);
+  perspective: 600px;
+  margin-bottom: 1.5rem;
+}
 
-    .latex4000WebringButtons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 0.5rem;
-    }
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotate 8s infinite linear;
+}
 
-    .latex4000WebringButtons a {
-      text-decoration: none;
-      color: var(--link-color);
-      font-size: 1rem;
-    }
+.cube div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  border: 2px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: #fff;
+}
 
-    .cube-container {
-      width: 150px;
-      height: 150px;
-      perspective: 600px;
-      margin-bottom: 1.5rem; 
-    }
+/* Faces positioned with half the cube size */
+.front  { transform: rotateY(0deg) translateZ(calc(var(--cube-size)/2)); }
+.back   { transform: rotateY(180deg) translateZ(calc(var(--cube-size)/2)); }
+.right  { transform: rotateY(90deg) translateZ(calc(var(--cube-size)/2)); }
+.left   { transform: rotateY(-90deg) translateZ(calc(var(--cube-size)/2)); }
+.top    { transform: rotateX(90deg) translateZ(calc(var(--cube-size)/2)); }
+.bottom { transform: rotateX(-90deg) translateZ(calc(var(--cube-size)/2)); }
 
-    .cube {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      animation: rotate 8s infinite linear;
-    }
+@keyframes rotate {
+  from { transform: rotateX(0deg) rotateY(0deg); }
+  to   { transform: rotateX(360deg) rotateY(360deg); }
+}
 
-    .cube div {
-      position: absolute;
-      width: 150px;
-      height: 150px;
-      background: rgba(0, 0, 0, 0.6); 
-      border: 2px solid #fff;     
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1rem;
-      color: #fff;
-    }
+@media (max-width: 600px) {
+  :root { --cube-size: 100px; }
+  .cube div { font-size: 0.7rem; }
+}
 
-    .front  { transform: rotateY(  0deg) translateZ(75px); }
-    .back   { transform: rotateY(180deg) translateZ(75px); }
-    .right  { transform: rotateY( 90deg) translateZ(75px); }
-    .left   { transform: rotateY(-90deg) translateZ(75px); }
-    .top    { transform: rotateX( 90deg) translateZ(75px); }
-    .bottom { transform: rotateX(-90deg) translateZ(75px); }
+h1 { margin: 0.5rem 0; }
 
-    @keyframes rotate {
-      from { transform: rotateX(0deg) rotateY(0deg); }
-      to   { transform: rotateX(360deg) rotateY(360deg); }
-    }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.5rem;
-      }
-      .nav a, .latex4000WebringButtons a {
-        font-size: 0.9rem;
-      }
-      .cube-container {
-        width: 100px;
-        height: 100px;
-      }
-      .cube div {
-        width: 100px;
-        height: 100px;
-      }
-    }
-  </style>
+.clock {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  text-align: center;
+  text-transform: lowercase;
+}
+.time { font-size: 1rem}
+.date { font-size: 0.9rem; opacity: 0.8; }
+</style>
 </head>
 <body>
-  <div class="cube-container">
-    <div class="cube">
-      <div class="front"> </div>
-      <div class="back"> </div>
-      <div class="right"> </div>
-      <div class="left"> </div>
-      <div class="top"> </div>
-      <div class="bottom"> </div>
-    </div>
+<div class="cube-container">
+  <div class="cube">
+    <div class="front"></div>
+    <div class="back"></div>
+    <div class="right"></div>
+    <div class="left"></div>
+    <div class="top"></div>
+    <div class="bottom"></div>
   </div>
-  <p> </p>
-  <p> </p>
-  <h1>sm1</h1>
-  <div class="nav">
-    <a href="https://soundcloud.com/itsnotsome1">soundcloud</a>
-    <a href="https://x.com/itsnotsome1">twitter</a>
-    <a href="https://www.last.fm/user/aelelex">last.fm</a>
-    <a href="https://www.twitch.tv/itsnotsome1">twitch</a>
-    <a href="https://www.youtube.com/@itsnotsome1">youtube</a>
-    <a href="hardware.html">hardware</a>
+</div>
+<p></p>
+<p></p>
+<h1>sm1</h1>
+<div class="nav">
+  <a href="https://soundcloud.com/itsnotsome1">soundcloud</a>
+  <a href="https://x.com/itsnotsome1">twitter</a>
+  <a href="https://www.last.fm/user/aelelex">last.fm</a>
+  <a href="https://www.twitch.tv/itsnotsome1">twitch</a>
+  <a href="https://www.youtube.com/@itsnotsome1">youtube</a>
+  <a href="hardware.html">hardware</a>
+</div>
+
+<div class="latex4000Webring">
+  <a href="https://nonacademic.net" title="Collective">l4k</a>
+  <div class="latex4000WebringButtons">
+    <a href="https://nonacademic.net/ring?action=prev&amp;from=sm1" title="Previous">←</a>
+    <a href="https://nonacademic.net/ring?action=rand&amp;from=sm1" title="Random">rand</a>
+    <a href="https://nonacademic.net/ring?action=next&amp;from=sm1" title="Next">→</a>
   </div>
-  <div class="latex4000Webring">
-    <a href="https://nonacademic.net" title="Collective">l4k</a>
-    <div class="latex4000WebringButtons">
-      <a href="https://nonacademic.net/ring?action=prev&amp;from=sm1" title="Previous">←</a>
-      <a href="https://nonacademic.net/ring?action=rand&amp;from=sm1" title="Random">rand</a>
-      <a href="https://nonacademic.net/ring?action=next&amp;from=sm1" title="Next">→</a>
-    </div>
-  </div>
+</div>
+
+<!-- Clock -->
+<div class="clock">
+  <div class="time" id="time">--:--:--</div>
+  <div class="date" id="date">loading…</div>
+</div>
+
+<script>
+function updateClock() {
+  const now = new Date();
+  document.getElementById("time").textContent =
+    now.toLocaleTimeString([], { hour:'2-digit', minute:'2-digit', second:'2-digit' }).toLowerCase();
+  document.getElementById("date").textContent =
+    now.toLocaleDateString([], { weekday:'long', year:'numeric', month:'long', day:'numeric' }).toLowerCase();
+}
+setInterval(updateClock, 1000);
+updateClock();
+</script>
 </body>
 </html>
